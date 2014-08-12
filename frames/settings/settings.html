@@ -1,0 +1,217 @@
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="left sliding"><a href="#" class="back link"><i class="icon icon-back-blue"></i><span>Bug Reporter&#8311;</span></a></div>
+		<div class="center sliding">Settings</div>
+		<div class="right sliding"><a href="#" class="link save-button"><span>Save</span></a></div>
+	</div>
+</div>
+<div class="pages navbar-through">
+	<div data-page="settings" class="page">
+		<div class="page-content">
+			<form id="form-theme" class="store-data">
+				<div class="content-block-title">Theme</div>
+				<div class="list-block tablet-inset">
+					<ul id="themes">
+						<li style="background-color: #fff; color: #000; border: none !important;">
+							<label class="label-radio item-content">
+								<!-- Checked by default -->
+								<input type="radio" name="theme" value="default" checked>
+								<div class="item-inner">
+									<div class="item-title">Light (Default)</div>
+								</div>
+							</label>
+						</li>
+						<!--<li style="background-color: #338ad6; color: #fff; border: none !important;">
+							<label class="label-radio item-content">
+								<input type="radio" name="theme" value="Blue">
+								<div class="item-inner">
+									<div class="item-title">Blue</div>
+								</div>
+							</label>
+						</li>
+						<li style="background-color: #57585c; color: #fff; border: none !important;">
+							<label class="label-radio item-content">
+								<input type="radio" name="theme" value="Light Gray">
+								<div class="item-inner">
+									<div class="item-title">Light Gray</div>
+								</div>
+							</label>
+						</li>
+						<li style="background-color: #313235; color: #fff; border: none !important;">
+							<label class="label-radio item-content">
+								<input type="radio" name="theme" value="Dark Gray">
+								<div class="item-inner">
+									<div class="item-title">Dark Gray</div>
+								</div>
+							</label>
+						</li>-->
+						<li style="background-color: #191919; color: #fff; border: none !important;">
+							<label class="label-radio item-content">
+								<!-- Checked by default -->
+								<input type="radio" name="theme" value="dark">
+								<div class="item-inner">
+									<div class="item-title">Dark</div>
+								</div>
+							</label>
+						</li>
+					</ul>
+				</div>
+				<!--<div class="list-block tablet-inset">
+					<ul>
+						<li>
+							<div class="item-content">
+								<div class="item-inner">
+									<div class="item-title label" style="width: auto;">Use Custom Theme</div>
+									<div class="item-input" style="width: auto;">
+										<label class="label-switch" style="float: right;">
+											<input type="checkbox" name="switch-custom-theme" />
+											<div class="checkbox"></div>
+										</label>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="frames/settings/theme-custom.html" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Custom Theme</div>
+										<div class="item-after" id="theme-pre">#f7f7f8</div>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>-->
+				<div class="list-block tablet-inset">
+					<ul>
+						<li>
+							<div class="item-content">
+								<div class="item-inner">
+									<div class="item-title label" style="width: auto;">Timed Theme</div>
+									<div class="item-input" style="width: auto;">
+										<label class="label-switch" data-colorable="yes" style="float: right;">
+											<input type="checkbox" name="switchTimedTheme" />
+											<div class="checkbox"></div>
+										</label>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</form>
+			<div class="content-block">
+				<p>Timed Theme automatically applies the Dark theme between 22:00 and 07:00. This time range will be changeable soon.</p>
+				<p>Due to technical limitations, a theme change requires the app to be restarted so the changed status bar can be applied.</p>
+			</div>
+
+			<form id="form-tint" class="store-data">
+				<div class="content-block-title">Tint Color</div>
+				<div class="list-block tablet-inset">
+					<ul>
+						<li>
+							<label class="label-radio item-content">
+								<!-- Checked by default -->
+								<input type="radio" name="tint" value="lightblue">
+								<div class="item-inner">
+									<div class="item-title" style="color: #5ac8fa;">Light Blue</div>
+								</div>
+							</label>
+						</li>
+						<li>
+							<label class="label-radio item-content">
+								<!-- Checked by default -->
+								<input type="radio" name="tint" value="yellow">
+								<div class="item-inner">
+									<div class="item-title" style="color: #ffcc00;">Yellow</div>
+								</div>
+							</label>
+						</li>
+						<li>
+							<label class="label-radio item-content">
+								<!-- Checked by default -->
+								<input type="radio" name="tint" value="orange">
+								<div class="item-inner">
+									<div class="item-title"style="color: #ff9500;">Orange</div>
+								</div>
+							</label>
+						</li>
+						<li>
+							<label class="label-radio item-content">
+								<!-- Checked by default -->
+								<input type="radio" name="tint" value="pink">
+								<div class="item-inner">
+									<div class="item-title" style="color: #ff2d55;">Purple</div>
+								</div>
+							</label>
+						</li>
+						<li>
+							<label class="label-radio item-content">
+								<!-- Checked by default -->
+								<input type="radio" name="tint" value="blue" checked>
+								<div class="item-inner">
+									<div class="item-title" style="color: #007aff;">Blue (Default)</div>
+								</div>
+							</label>
+						</li>
+						<li>
+							<label class="label-radio item-content">
+								<!-- Checked by default -->
+								<input type="radio" name="tint" value="green">
+								<div class="item-inner">
+									<div class="item-title" style="color: #4cd964;">Green</div>
+								</div>
+							</label>
+						</li>
+						<li>
+							<label class="label-radio item-content">
+								<!-- Checked by default -->
+								<input type="radio" name="tint" value="red">
+								<div class="item-inner">
+									<div class="item-title" style="color: #ff3b30;">Red</div>
+								</div>
+							</label>
+						</li>
+						<li>
+							<label class="label-radio item-content">
+								<!-- Checked by default -->
+								<input type="radio" name="tint" value="gray">
+								<div class="item-inner">
+									<div class="item-title" style="color: #8e8e93;">Gray</div>
+								</div>
+							</label>
+						</li>
+					</ul>
+				</div>
+				<!--<div class="list-block tablet-inset">
+					<ul>
+						<li>
+							<div class="item-content">
+								<div class="item-inner">
+									<div class="item-title label" style="width: auto;">Use Custom Tint Color</div>
+									<div class="item-input" style="width: auto;">
+										<label class="label-switch" style="float: right;">
+											<input type="checkbox" name="switch-custom-tint" />
+											<div class="checkbox"></div>
+										</label>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a href="frames/settings/color-custom.html" class="item-link">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title">Custom Tint Color</div>
+										<div class="item-after" id="tint-pre">#007aff</div>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>-->
+			</form>
+		</div>
+	</div>
+</div>
