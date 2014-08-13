@@ -2,7 +2,8 @@ var br7 = new Framework7({
 	animateNavBackIcon: true,
 	cache: false,
 	cacheDuration: 1000,
-	sortable: false
+	sortable: false,
+	modalTitle: unescape("Bug Reporter%u2077")
 });
 var openBugsCount = 0;
 $(document).ready(function() {
@@ -12,6 +13,8 @@ $(document).ready(function() {
 		br7.popup(".popup-getting-started");
 	}
 });
+
+var timeouts = []
 
 var statusbarTheme = br7.formGetData("form-theme") ? $.parseJSON(JSON.stringify(br7.formGetData("form-theme"))).theme : "default";
 
@@ -52,6 +55,56 @@ br7.onPageInit('settings', function () {
 	$$('.save-button').on("click", function() {
 		br7.alert("Error: The SQL database could not be contacted. Form data has been saved locally.","SQL Database Error");
 	});
+
+	$$('.reset-local-storage').on("click", function() {
+		var clickedLink = $(this);
+		if (br7.device.iphone) {
+			var buttons1 = [
+				{
+					text: "This will remove data that is used to display Bugs and Settings. Installed updates are not affected. The App will be restarted once the process is finished.",
+					label: true
+				},
+				{
+					text: "Reset Data",
+					red: true,
+					onClick: function() {
+						clearInterval(timedTheme);
+						localStorage.clear();
+						window.location.reload();
+					}
+				}
+			];
+			var buttons2 = [
+				{
+					text: "Cancel",
+					bold: true
+				}
+			];
+			var group = [buttons1, buttons2];
+			br7.actions(group);
+		
+		} else {
+			br7.modal({
+				title: "Remove Website Data",
+				text: "This will remove data that is used to display Bugs and Settings. Installed updates are not affected. The App will be restarted once the process is finished.",
+				buttons: [
+					{
+						text: "Reset Data",
+						onClick: function() {
+							clearInterval(timedTheme);
+							localStorage.clear();
+							window.location.reload();
+						}
+					},
+					{
+						text: "Cancel"
+					}
+				]
+			});
+
+		}
+	});
+
 });
 
 br7.onPageInit("getting-started-main", function() {
@@ -67,7 +120,7 @@ br7.onPageInit("getting-started-main", function() {
 	});
 	$('[data-page="getting-started-main"] .close-popup').on("click", function() {
 		setTimeout(function() {
-			gettingStartedView.goBack();
+			//gettingStartedView.goBack();
 		}, 300);
 	});
 });
@@ -90,7 +143,7 @@ br7.onPageBeforeAnimation("index", function() {
 	$('#open-badge').html(openBugsCount);
 });
 
-br7.onPageInit("bugs-open", function() {
+br7.onPageBeforeAnimation("bugs-open", function() {
 	buildHTML("open");
 	br7 = new Framework7();
 });
@@ -127,15 +180,18 @@ $$('.close-popup').on('click', function() {
 
 $('.submit-bug').on("click", function() {
 	if (readCookie("username") && $('[name="newBugName"]').val() != "" && $('[name="newBugDesc"]').val() != "") {
+		var date = new Date();
+		var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+		var dateString = ("0" + date.getDate()).slice(-2) + "-" + monthNames[date.getMonth()] + "-" + date.getFullYear() + " " +  ("0" + date.getHours()).slice(-2) + ":" + ("0" + date.getMinutes()).slice(-2);
 		bugsStorage.push({
 			title: $('[name="newBugName"]').val() + " ",
 			category: $('[name="newBugCat"]').val() + " ",
 			description: $('[name="newBugDesc"]').val() + " ",
 			author: readCookie("username"),
 			status: "open",
-			id: bugsStorage.length + 1
-		});
-		localStorage.bugsData = JSON.stringify(bugsStorage);
+			id: bugsStorage.length +1,
+			date: dateString
+		});		localStorage.bugsData = JSON.stringify(bugsStorage);
 		br7.showPreloader("Submitting...");
 		setTimeout(function() {
 			br7.hidePreloader();
@@ -240,12 +296,8 @@ function changeDesign(key) {
 }
 changeDesign("init");
 
-/*var bugTemplate;
-$(document).ready(function() {
-	bugTemplate = $$('#bug-template').html();
-});*/
 function buildHTML(page) {
-var bugTemplate
+	var bugTemplate;
 	switch (page) {
 		case "open": bugTemplate = $$('#bug-open-template').html(); break;
 		case "closed": bugTemplate = $$('#bug-closed-template').html(); break;
@@ -256,11 +308,14 @@ var bugTemplate
 	for (var i = 0; i < bugsStorage.length; i++) {
 		var bugsItem = bugsStorage[i];
 		if (bugsItem.status == page) {
-			html += bugTemplate.replace(/{{title}}/g, bugsItem.title).replace(/{{category}}/g, bugsItem.category).replace(/{{description}}/g, bugsItem.description).replace(/{{author}}/g, bugsItem.author).replace(/{{status}}/g, bugsItem.status).replace(/{{id}}/g, bugsItem.id);
+			html += bugTemplate.replace(/{{title}}/g, bugsItem.title).replace(/{{category}}/g, bugsItem.category).replace(/{{description}}/g, bugsItem.description).replace(/{{author}}/g, bugsItem.author).replace(/{{status}}/g, bugsItem.status).replace(/{{id}}/g, bugsItem.id).replace(/{{date}}/g, bugsItem.date);
 		}
 		switch (page) {
 			case "open":
 				$('#bugs-open-content').html(html);
+				if ($('#bugs-open-content').html() != "") {
+					$('.page-content.bug-bg').removeClass("bug-bg");
+				}
 				$$('.action1').on("click", function() {
 					var issueID = parseInt($(this).closest(".swipeout").children(".swipeout-content").children(".issueID").html());
 					var bugObject = bugsStorage[issueID-1];
@@ -268,9 +323,12 @@ var bugTemplate
 					bugsStorage[issueID-1] = bugObject;
 					localStorage.bugsData = JSON.stringify(bugsStorage);
 					var obj = $(this);
-					setTimeout(function() {
-						$(obj).closest("ul").remove();
-					}, 300);
+					timeouts.push(setTimeout(function() {
+						$(obj).closest("div.list-block").remove();
+						if ($('#bugs-open-content').children("div.list-block").length < 1) {
+							$('.page-content.bug-no-bg').addClass("bug-bg");
+						}
+					}, 300));
 				});
 				$$('.action2').on("click", function() {
 					var issueID = parseInt($(this).closest(".swipeout").children(".swipeout-content").children(".issueID").html());
@@ -279,12 +337,18 @@ var bugTemplate
 					bugsStorage[issueID-1] = bugObject;
 					localStorage.bugsData = JSON.stringify(bugsStorage);
 					var obj = $(this);
-					setTimeout(function() {
-						$(obj).closest("ul").remove();
-					}, 300);
+					timeouts.push(setTimeout(function() {
+						$(obj).closest("div.list-block").remove();
+						if ($('#bugs-open-content').children("div.list-block").length < 1) {
+							$('.page-content.bug-no-bg').addClass("bug-bg");
+						}
+					}, 300));
 				});
 				break;
 			case "closed":
+				if ($('#bugs-closed-content').html() != "") {
+					$('.page-content.bug-bg').removeClass("bug-bg");
+				}
 				$('#bugs-closed-content').html(html);
 				$$('.action1').on("click", function() {
 					var issueID = parseInt($(this).closest(".swipeout").children(".swipeout-content").children(".issueID").html());
@@ -293,9 +357,12 @@ var bugTemplate
 					bugsStorage[issueID-1] = bugObject;
 					localStorage.bugsData = JSON.stringify(bugsStorage);
 					var obj = $(this);
-					setTimeout(function() {
-						$(obj).closest("ul").remove();
-					}, 300);
+					timeouts.push(setTimeout(function() {
+						$(obj).closest("div.list-block").remove();
+						if ($('#bugs-closed-content').children("div.list-block").length < 1) {
+							$('.page-content.bug-no-bg').addClass("bug-bg");
+						}
+					}, 300));
 				});
 				$$('.action2').on("click", function() {
 					var issueID = parseInt($(this).closest(".swipeout").children(".swipeout-content").children(".issueID").html());
@@ -304,21 +371,30 @@ var bugTemplate
 					bugsStorage[issueID-1] = bugObject;
 					localStorage.bugsData = JSON.stringify(bugsStorage);
 					var obj = $(this);
-					setTimeout(function() {
-						$(obj).closest("ul").remove();
-					}, 300);
+					timeouts.push(setTimeout(function() {
+						$(obj).closest("div.list-block").remove();
+						if ($('#bugs-closed-content').children("div.list-block").length < 1) {
+							$('.page-content.bug-no-bg').addClass("bug-bg");
+						}
+					}, 300));
 				});
 				break;
 			case "archived":
+				if ($('#bugs-closed-content').html() != "") {
+					$('.page-content.bug-bg').removeClass("bug-bg");
+				}
 				$('#bugs-archived-content').html(html);
 				$$('.action1').on("click", function() {
 					var issueID = parseInt($(this).closest(".swipeout").children(".swipeout-content").children(".issueID").html());
 					var bugObject = bugsStorage[issueID-1];
 					var index = bugsStorage.indexOf(bugObject);
 					var obj = $(this);
-					setTimeout(function() {
-						$(obj).closest("ul").remove();
-					}, 300);
+					timeouts.push(setTimeout(function() {
+						$(obj).closest("div.list-block").remove();
+						if ($('#bugs-archived-content').children("div.list-block").length < 1) {
+							$('.page-content.bug-no-bg').addClass("bug-bg");
+						}
+					}, 300));
 					if (index > -1) {
 						bugsStorage.splice(index, 1);
 						localStorage.bugsData = JSON.stringify(bugsStorage);
@@ -330,7 +406,7 @@ var bugTemplate
 	}
 }
 
-var timedDesign = setInterval(function() {
+var timedTheme = setInterval(function() {
 	var timedThemeSwitch = br7.formGetData("form-theme") != undefined ? $.parseJSON(JSON.stringify(br7.formGetData("form-theme"))).switchTimedTheme : []
 	if (timedThemeSwitch.length != 0) {
 		var time = new Date();
@@ -368,7 +444,7 @@ window.addEventListener('load', function (e) {
     window.applicationCache.addEventListener('updateready', function (e) {
         if (window.applicationCache.status === window.applicationCache.UPDATEREADY) {
             // Browser downloaded a new app cache.
-            br7.confirm(unescape('Bug Reporter%u2077 has been updated. Would you like to update?'), function () {
+            br7.confirm(unescape('Bug Reporter%u2077 has been updated. Would you like to install this update?'), function () {
                 window.location.reload();
             });
         }

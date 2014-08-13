@@ -141,8 +141,8 @@
 								<img style="position: relative; left: 50%; margin-left: -60px; margin-top: 25px; width: 120px; height: 120px;" src="iTunesArtwork.png" />
 								<div class="login-screen-title">Bug Reporter&#8311;</div>
 								<form>
-									<!--
-<div class="list-block">
+<!--
+									<div class="list-block">
 										<ul>
 											<li class="item-content">
 												<div class="item-inner">
@@ -226,7 +226,7 @@
 													<div class="item-title label">Category</div>
 													<div class="item-input">
 														<select name="newBugCat">
-															<option disabled selected value="None">Please choose</option>
+															<option selected value="None">None</option>
 															<option value="Security">Security</option>
 															<option value="Crash/Hang/Data Loss">Crash/Hang/Data Loss</option>
 															<option value="Power">Power</option>
@@ -263,16 +263,16 @@
 
 
 		<div class="popover popover-usercp">
-		<div class="popover-angle"></div>
-		<div class="popover-inner">
-			<div class="list-block">
-				<ul>
-					<li><a href="#" class="list-button item-link close-popover button-red logout-button">Sign off</a></li>
-					<!-- <li><a href="#" class="list-button item-link close-popover">User Control Panel</a></li> -->
-				</ul>
+			<div class="popover-angle"></div>
+			<div class="popover-inner">
+				<div class="list-block">
+					<ul>
+						<li><a href="#" class="list-button item-link close-popover button-red logout-button">Sign off</a></li>
+						<!-- <li><a href="#" class="list-button item-link close-popover">User Control Panel</a></li> -->
+					</ul>
+				</div>
 			</div>
 		</div>
-	</div>
 		</div>
 
 		<!-- Path to Framework7 Library JS-->
@@ -284,13 +284,12 @@
 			<div class="list-block">
 				<ul>
 					<li class="swipeout">
-						<div class="swipeout-content" style="font-size: 14px; padding: 15px;">
-							<p class="title" style="margin: 0; overflow: hidden; text-overflow: ellipsis; font-weight: bold;">{{title}}</p>
-							<p class="category" style="margin: 0; float: left;">{{category}}</p>
-							<p class="status" style="margin: 0; float: right;">{{status}}</p>
-							<p class="issueID" style="margin: 0; text-align: center; font-weight: bold;">{{id}}</p>
-							<p class="description" style="margin: 0; clear: both; line-height: 100%;">{{description}}</p>
-							<p class="author" style="margin: 0; clear: both; line-height: 100%;"><br><span style="font-weight: bold;">Created by: </span>{{author}}</p>
+						<div class="swipeout-content" style="font-size: 14px; padding: 20px 19px 20px 30px;">
+							<p class="title" style="margin: 0 5px 0 0; overflow: hidden; text-overflow: ellipsis; font-weight: bold; float: left;">{{title}}</p>
+							<p class="date" style="margin: 0; float: right; color: #23b2fd">{{date}}</p>
+							<p class="issueID" style="clear: both; margin: 0; float: left;">{{id}}</p>
+							<p class="category" style="margin: 0; float: right;">{{category}}</p>
+							<p class="description" style="clear: both; margin: 5px 0 0 0; max-height: 32px; text-overflow: ellipsis; overflow: hidden;">{{description}}</p>
 						</div>
 						<div class="swipeout-actions">
 							<div class="swipeout-actions-inner">
@@ -307,12 +306,11 @@
 				<ul>
 					<li class="swipeout">
 						<div class="swipeout-content" style="font-size: 14px; padding: 15px;">
-							<p class="title" style="margin: 0; overflow: hidden; text-overflow: ellipsis; font-weight: bold;">{{title}}</p>
-							<p class="category" style="margin: 0; float: left;">{{category}}</p>
-							<p class="status" style="margin: 0; float: right;">{{status}}</p>
-							<p class="issueID" style="margin: 0; text-align: center; font-weight: bold;">{{id}}</p>
-							<p class="description" style="margin: 0; clear: both; line-height: 100%;">{{description}}</p>
-							<p class="author" style="margin: 0; clear: both; line-height: 100%;"><br><span style="font-weight: bold;">Created by: </span>{{author}}</p>
+							<p class="title" style="margin: 0 5px 0 0; overflow: hidden; text-overflow: ellipsis; font-weight: bold; float: left;">{{title}}</p>
+							<p class="date" style="margin: 0; float: right; color: #23b2fd">{{date}}</p>
+							<p class="issueID" style="clear: both; margin: 0; float: left;">{{id}}</p>
+							<p class="category" style="margin: 0; float: right;">{{category}}</p>
+							<p class="description" style="clear: both; margin: 5px 0 0 0; max-height: 32px; text-overflow: ellipsis; overflow: hidden;">{{description}}</p>
 						</div>
 						<div class="swipeout-actions">
 							<div class="swipeout-actions-inner">
@@ -329,12 +327,11 @@
 				<ul>
 					<li class="swipeout">
 						<div class="swipeout-content" style="font-size: 14px; padding: 15px;">
-							<p class="title" style="margin: 0; overflow: hidden; text-overflow: ellipsis; font-weight: bold;">{{title}}</p>
-							<p class="category" style="margin: 0; float: left;">{{category}}</p>
-							<p class="status" style="margin: 0; float: right;">{{status}}</p>
-							<p class="issueID" style="margin: 0; text-align: center; font-weight: bold;">{{id}}</p>
-							<p class="description" style="margin: 0; clear: both; line-height: 100%;">{{description}}</p>
-							<p class="author" style="margin: 0; clear: both; line-height: 100%;"><br><span style="font-weight: bold;">Created by: </span>{{author}}</p>
+							<p class="title" style="margin: 0 5px 0 0; overflow: hidden; text-overflow: ellipsis; font-weight: bold; float: left;">{{title}}</p>
+							<p class="date" style="margin: 0; float: right; color: #23b2fd">{{date}}</p>
+							<p class="issueID" style="clear: both; margin: 0; float: left;">{{id}}</p>
+							<p class="category" style="margin: 0; float: right;">{{category}}</p>
+							<p class="description" style="clear: both; margin: 5px 0 0 0; max-height: 32px; text-overflow: ellipsis; overflow: hidden;">{{description}}</p>
 						</div>
 						<div class="swipeout-actions">
 							<div class="swipeout-actions-inner">

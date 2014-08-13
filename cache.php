@@ -19,7 +19,9 @@ $filesToCache = array(
     './img/demo_submit.png', 
     './img/demo_themes.png', 
     './img/demo_timed-theme.png', 
-    './img/demo_universal.png', 
+    './img/demo_universal.png',
+    './img/bug_1.png',
+    './img/bug_1@2x.png',
 
     './js/br7.js',
     './js/cookies.js',

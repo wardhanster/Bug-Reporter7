@@ -16,9 +16,20 @@ Key Features
 
 _*: Not Available right now_
 
-Design
-======
-Bug Reporter7 uses the basic iOS 7 design. Nothing special, just simlpe and straightforward. Who needs fancy graphics if you can have simple list navigation?
+Changelog
+=========
+Release 1.0.1-2341 (August 13)
+------------------
+* [FIX] Fixed Deadlock after completing "Tips" section
+* [IMPROVE] Restructured Bug information layout (Dates FTW!)  
+  *NOTE: If you have created bugs before, you need to reset them through Settings > "Reset All Website Data" or you'll have some "undefined" texts.*
+* [IMPROVE] Removed unnecessary code lines (still doesn't reduce size that much)
+* [ADD] Added option to remove all website data
+* [ADD] Background Image in Bug view (Open, closed and Archived; only visible when no bugs are loaded)
+
+Release 1.0-2213 (August 12)
+----------------
+* Initial Release
 
 Copyright
 =========
