@@ -8,13 +8,13 @@ Key Features
 **NOTE: This is the Demo of Bug Reporter7! There is only a limited set of features that can be used right now.**
 
 * **Submit bugs, report issues**: Help advance development of your project by reporting issues you encounter. Just tap „Submit“ and enter the details.
-* __Work in groups* __: Groups help you and your team organize your work. See your existing groups or apply for new ones.
-* __Announcing: Announcements* __: Announcements are messages by admins or moderators to help you quickly find out about new bugs and issues.
+* **Work in groups**: Groups help you and your team organize your work. See your existing groups or apply for new ones.
+* **Announcing: Announcements**: Announcements are messages by admins or moderators to help you quickly find out about new bugs and issues.
 * **Show off your personality**: Quickly change themes or tint colors to create the experience you want. Your settings are synchronized via the Cloud.
 * **Night and Day. Yours to choose**: Timed Theme allows you to automatically apply the Dark theme when it's night. And when it's day, the theme will be Light again.
 * **With Updates, it keeps getting better**: Every release of Bug Reporter⁷ now comes with Software Update to keep your app always up to date, because Updates are downloaded automatically.
 
-_*: Not Available right now_
+* NOTE: Groups and Announcements currently not available in Demo *
 
 Software Update
 ===============
