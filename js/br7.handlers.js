@@ -104,15 +104,19 @@ br7.onPageInit("getting-started-main", function() {
 			pagination:'.slider-pagination-h',
 			paginationHide: false
 	});
-	/*var vSlider = br7.slider('.slider-container-v', {
+	var vSlider = br7.slider('.slider-container-v', {
 			spaceBetween: 100,
 			pagination:'.slider-pagination-v',
 			paginationHide: false
-	});*/
+	});
 	$('[data-page="getting-started-main"] .close-popup').on("click", function() {
 		setTimeout(function() {
 			//gettingStartedView.goBack();
 		}, 300);
+	});
+	$('.close-tutorial').on("click", function() {
+		br7.closeModal();
+		localStorage.setItem("doneTutorial","yes");
 	});
 });
 

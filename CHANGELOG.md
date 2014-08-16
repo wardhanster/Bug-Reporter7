@@ -1,4 +1,10 @@
 # Changelog
+Release 1.0.2-1158 Update 1 (August 16)
+---------------------------
+* [IMPROVE] Changed way "Tips" section is closed  
+  *NOTE: "Tips" doesn't navigate back currently as there are some technical issues when manually navigating back*
+
+
 Release 1.0.2-1558 (August 16)
 ------------------
 * [ADD] Preparation for Localization Update (1.0.3)
