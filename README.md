@@ -8,29 +8,25 @@ Key Features
 **NOTE: This is the Demo of Bug Reporter7! There is only a limited set of features that can be used right now.**
 
 * **Submit bugs, report issues**: Help advance development of your project by reporting issues you encounter. Just tap „Submit“ and enter the details.
-* **Work in groups* **: Groups help you and your team organize your work. See your existing groups or apply for new ones.
-* **Announcing: Announcements* **: Announcements are messages by admins or moderators to help you quickly find out about new bugs and issues.
+* __Work in groups* __: Groups help you and your team organize your work. See your existing groups or apply for new ones.
+* __Announcing: Announcements* __: Announcements are messages by admins or moderators to help you quickly find out about new bugs and issues.
 * **Show off your personality**: Quickly change themes or tint colors to create the experience you want. Your settings are synchronized via the Cloud.
 * **Night and Day. Yours to choose**: Timed Theme allows you to automatically apply the Dark theme when it's night. And when it's day, the theme will be Light again.
-* **It just works. Everywhere**: Bug Reporter7 is available on iPhone, iPad and even on Desktop. And it looks great everywhere!
+* **With Updates, it keeps getting better**: Every release of Bug Reporter⁷ now comes with Software Update to keep your app always up to date, because Updates are downloaded automatically.
 
 _*: Not Available right now_
 
+Software Update
+===============
+Introducing Software Update, a new method to update the app's offline cache.
+Available in "Settings", Software Update searches for any changes to the cached files (```cache.php```) or update files (```update.json```) and applies them on demand or when the app is restarted.
+Software Update automatically searches for updates on launch and informs users when an update is available.
+
+Software Update requires working Application Cache. Current approach relies on PHP, so this requires a PHP capable server.
+
 Changelog
 =========
-Release 1.0.1-2341 (August 13)
-------------------
-* [FIX] Fixed Deadlock after completing "Tips" section
-* [IMPROVE] Restructured Bug information layout (Dates FTW!)  
-  *NOTE: If you have created bugs before, you need to reset them through Settings > "Reset All Website Data" or you'll have some "undefined" texts.*
-* [IMPROVE] Removed unnecessary code lines (still doesn't reduce size that much)
-* [ADD] Added option to remove all website data
-* [ADD] Background Image in Bug view (Open, closed and Archived; only visible when no bugs are loaded)
-
-Release 1.0-2213 (August 12)
-----------------
-* Initial Release
-
+See [CHANGELOG.md](https://github.com/SniperGER/Bug-Reporter7/blob/master/CHANGELOG.md)
 Copyright
 =========
 © 2014 Janik Schmidt, All rights reserved.

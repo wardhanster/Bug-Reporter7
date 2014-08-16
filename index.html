@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="with-statusbar-overlay" manifest="cache.php">
+<html class="" manifest="cache.php">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
@@ -9,256 +9,279 @@
 		<link rel="stylesheet" href="css/framework7.css">
 		<link rel="stylesheet" href="css/framework7.themes.css">
 		<link rel="stylesheet" href="css/bugreporter7.css">
+		
 		<link rel="apple-touch-icon" href="AppIcon60x60.png">
 		<link rel="apple-touch-icon" sizes="76x76" href="AppIcon76x76.png">
 		<link rel="apple-touch-icon" sizes="120x120" href="AppIcon60x60@2x.png">
 		<link rel="apple-touch-icon" sizes="152x152" href="AppIcon76x76@2x.png">
+		<link href="Default-568h@2x.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+		<link href="default@2x.png" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+		
 		<script src="js/jquery.js"></script>
 		<script src="js/cookies.js"></script>
-		<script src="js/MD5.js"></script>
 	</head>
-	<body class="layout-dark theme-pink">
+	<body class="ios8">
 		<div class="statusbar-overlay"></div>
-			<div class="views">
-				<div class="view view-main">
-					<div class="navbar">
-						<div class="navbar-inner">
-							<div class="center sliding">Bug Reporter&#8311;</div>
-						</div>
+		<div class="views">
+			<div class="view view-main">
+				<div class="navbar">
+					<div class="navbar-inner">
+						<div class="center sliding">Bug Reporter&#8311;</div>
 					</div>
-					<div class="pages navbar-through toolbar-through">
-						<div data-page="index" class="page page-on-center">
-							<div class="page-content">
-								<div class="content-block-title">User Control Center</div>
-								<div class="list-block tablet-inset">
-									<ul>
-										<li>
-											<a href="#" class="center" data-popup=".popup-login">
-												<div class="item-content">
-													<div class="item-inner">
-														<div class="item-title" id="user-label" style="width: 100%">User is not signed in</div>
-													</div>
+				</div>
+				<div class="pages navbar-through">
+					<div data-page="index" class="page page-on-center">
+						<div class="page-content">
+							<div class="content-block-title" data-i18n="USER_CONTROL_CENTER">User Control Center</div>
+							<div class="list-block tablet-inset">
+								<ul>
+									<li>
+										<a href="#" class="center" data-popup=".popup-login">
+											<div class="item-content">
+												<div class="item-inner">
+													<div class="item-title" id="user-label" style="width: 100%" data-i18n="NOT_SIGNED_IN">User is not signed in</div>
 												</div>
-											</a>
-										</li>
-									</ul>
-								</div>
-								<div class="content-block-title">Bugs</div>
-								<div class="list-block tablet-inset">
-									<ul>
-										<li>
-											<a href="frames/bugs-open.html" class="item-link">
-												<div class="item-content">
-													<div class="item-inner">
-														<div class="item-title">Open Bugs</div>
-														<div class="item-after"><span class="badge" id="open-badge">?</span></div>
-													</div>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="content-block-title">Bugs</div>
+							<div class="list-block tablet-inset">
+								<ul>
+									<li>
+										<a href="frames/bugs/bugs-open.html" class="item-link">
+											<div class="item-content">
+												<div class="item-inner">
+													<div class="item-title" data-i18n="OPEN_BUGS">Open Bugs</div>
+													<div class="item-after"><span class="badge" id="open-badge">?</span></div>
 												</div>
-											</a>
-										</li>
-										<li>
-											<a href="frames/bugs-closed.html" class="item-link">
-												<div class="item-content">
-													<div class="item-inner">
-														<div class="item-title">Closed Bugs</div>
-													</div>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="frames/bugs/bugs-closed.html" class="item-link">
+											<div class="item-content">
+												<div class="item-inner">
+													<div class="item-title" data-i18n="CLOSED_BUGS">Closed Bugs</div>
 												</div>
-											</a>
-										</li>
-										<li>
-											<a href="frames/bugs-archived.html" class="item-link">
-												<div class="item-content">
-													<div class="item-inner">
-														<div class="item-title">Archived Bugs</div>
-													</div>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="frames/bugs/bugs-archived.html" class="item-link">
+											<div class="item-content">
+												<div class="item-inner">
+													<div class="item-title" data-i18n="ARCHIVED_BUGS">Archived Bugs</div>
 												</div>
-											</a>
-										</li>
-									</ul>
-								</div>
-								<div class="content-block-title">Advanced</div>
-								<div class="list-block tablet-inset">
-									<ul>
-										<li>
-											<a href="javascript:br7.alert('This page is not avaliable.','Feature not available')" class="item-link external">
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="content-block-title" data-i18n="ADVANCED">Advanced</div>
+							<div class="list-block tablet-inset">
+								<ul>
+									<li>
+										<a href='javascript:br7.alert("<span data-i18n=\"PAGE_NOT_AVAILABLE\">This page is not avaliable.</span>","<span data-i18n=\"FEATURE_NOT_AVAILABLE\">Feature not available</span>");' class="item-link external">
 <!-- 											<a href="frames/groups.html" class="item-link"> -->
-												<div class="item-content">
-													<div class="item-inner">
-															<div class="item-title">Groups</div>
-													</div>
-												</div>
-											</a>
-										</li>
-										<li>
-											<a href="javascript:br7.alert('This page is not avaliable.','Feature not available')" class="item-link external">
-												<div class="item-content">
-													<div class="item-inner">
-														<div class="item-title">Announcements</div>
-													</div>
-												</div>
-											</a>
-										</li>
-									</ul>
-								</div>
-								<div class="list-block tablet-inset">
-									<ul>
-										<li>
-											<a href="frames/settings/settings.html" class="item-link">
-												<div class="item-content">
-													<div class="item-inner">
-															<div class="item-title">Settings</div>
-													</div>
-												</div>
-											</a>
-										</li>
-										<li>
-											<a href="#" class="open-popup" data-popup=".popup-getting-started">
-												<div class="item-content">
-													<div class="item-inner">
-															<div class="item-title">Show Tips</div>
-													</div>
-												</div>
-											</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="popup popup-login">
-				<div class="view view-login">
-					<div class="pages navbar-through">
-						<div class="navbar">
-							<div class="navbar-inner">
-								<div class="center sliding">Login</div>
-								<div class="right sliding"><a href="#" class="link close-popup"><span>Cancel</span></a></div>
-							</div>
-						</div>
-						<div data-page="login-screen-embedded" class="page theme-lightblue color-lightblue">
-							<div class="page-content login-screen-content">
-								<img style="position: relative; left: 50%; margin-left: -60px; margin-top: 25px; width: 120px; height: 120px;" src="iTunesArtwork.png" />
-								<div class="login-screen-title">Bug Reporter&#8311;</div>
-								<form>
-<!--
-									<div class="list-block">
-										<ul>
-											<li class="item-content">
+											<div class="item-content">
 												<div class="item-inner">
-													<div class="item-title label">Username</div>
-													<div class="item-input">
-														<input id="username" type="text" name="username" placeholder="mail@example.com" autocapitalize="off" autocorrect="off" />
-													</div>
+														<div class="item-title" data-i18n="GROUPS">Groups</div>
 												</div>
-											</li>
-											<li class="item-content">
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href='javascript:br7.alert("<span data-i18n=\"PAGE_NOT_AVAILABLE\">This page is not avaliable.</span>","<span data-i18n=\"FEATURE_NOT_AVAILABLE\">Feature not available</span>");' class="item-link external">
+											<div class="item-content">
 												<div class="item-inner">
-													<div class="item-title label">Password</div>
-													<div class="item-input">
-														<input id="password" type="password" name="password" placeholder="Required"/>
-													</div>
+													<div class="item-title" data-i18n="ANNOUNCEMENTS">Announcements</div>
 												</div>
-											</li>
-										</ul>
-									</div>
--->
-									<div class="list-block">
-										<ul>
-											<li><a href="#" class="item-link list-button signin-button">Sign In as Demo User</a></li>
-<!-- 											<li><a href="frames/register.php" class="item-link list-button" data-view=".view-login">Register</a></li> -->
-										</ul>
-<!-- 										<div class="list-block-label">A valid login is required to use advanced functionality of this website.</div> -->
-										<div class="list-block-label">Bug Reporter&#8311; stores Login information and Bugs locally on your device.</div>
-									</div>
-								</form>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="list-block tablet-inset">
+								<ul>
+									<li>
+										<a href="frames/settings/index.html" class="item-link">
+											<div class="item-content">
+												<div class="item-inner">
+														<div class="item-title" data-i18n="SETTINGS">Settings</div>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="open-popup" data-popup=".popup-getting-started">
+											<div class="item-content">
+												<div class="item-inner">
+														<div class="item-title" data-i18n="SHOW_TIPS">Show Tips</div>
+												</div>
+											</div>
+										</a>
+									</li>
+								</ul>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="popup popup-getting-started">
-				<div class="view view-getting-started">
-					<div class="pages">
-						<div class="page no-swipeback" data-page="getting-started">
-							<div class="page-content login-screen-content">
-								<img style="position: relative; left: 50%; margin-left: -30px; margin-top: 90px; width: 60px; height: 60px;" src="iTunesArtwork.png" />
-								<div class="login-screen-title" style="font-weight: 100; font-size: 30pt">Tips</div>
-								<div class="content-block">
-									<p style="color: #8e8e93; font-size: 14pt; text-align: center; font-weight: 300;">Learn how to use Bug Reporter&#8311;<br>by taking this quick tour.</p>
-								</div>
-								<div class="list-block center" style="position: absolute; bottom: 0; width: 100%; max-width: 100%;">
-										<a href="frames/getting-started.html" class="link" style="font-size: 14pt; height: 44px;"><span>Get Started </span><i class="icon icon-back-blue" style="-webkit-transform: rotate(180deg); transform: rotate: 180deg); margin-top: -5px;"></i></a>
-									<div class="list-block-label"><a href="#" class="link close-popup">Not now</a></div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="popup popup-submit">
-				<div class="view view-popup-submit">
+		</div>
+		<div class="popup popup-login">
+			<div class="view view-login">
+				<div class="pages navbar-through">
 					<div class="navbar">
 						<div class="navbar-inner">
-							<div class="left sliding"><a href="#" class="close-popup">Cancel</a></div>
-							<div class="center sliding">Submit New Bug</div>
-							<div class="right sliding"><a href="#" class="submit-bug"><b>Submit</b></a></div>
+							<div class="center sliding">Login</div>
+							<div class="right sliding"><a href="#" class="link close-popup"><span>Cancel</span></a></div>
 						</div>
 					</div>
-					<div class="pages">
-						<div class="page navbar-through" data-page="submit">
-							<div class="page-content">
-								<div class="list-block tablet-inset">
+					<div data-page="login-screen-embedded" class="page">
+						<div class="page-content login-screen-content">
+							<img style="position: relative; left: 50%; margin-left: -60px; margin-top: 25px; width: 120px; height: 120px;" src="iTunesArtwork.png" />
+							<div class="login-screen-title">Bug Reporter&#8311;</div>
+							<form>
+<!--
+								<div class="list-block">
 									<ul>
-										<li>
-											<div class="item-content">
-												<div class="item-inner">
-													<div class="item-title label">Title</div>
-													<div class="item-input">
-														<input name="newBugName" type="text" placeholder="50 characters">
-													</div>
+										<li class="item-content">
+											<div class="item-inner">
+												<div class="item-title label">Username</div>
+												<div class="item-input">
+													<input id="username" type="text" name="username" placeholder="mail@example.com" autocapitalize="off" autocorrect="off" />
 												</div>
 											</div>
 										</li>
-										<li>
-											<div class="item-content">
-												<div class="item-inner">
-													<div class="item-title label">Category</div>
-													<div class="item-input">
-														<select name="newBugCat">
-															<option selected value="None">None</option>
-															<option value="Security">Security</option>
-															<option value="Crash/Hang/Data Loss">Crash/Hang/Data Loss</option>
-															<option value="Power">Power</option>
-															<option value="Perfomance">Performance</option>
-															<option value="UI/Usability">UI/Usability</option>
-															<option value="Serious Bug">Serious Bug</option>
-															<option value="Other Bug">Other Bug</option>
-															<option value="Feature (New)">Feature (New)</option>
-															<option value="Enhancement">Enhancement</option>
-														</select>
-													</div>
-												</div>
-											</div>
-										</li>
-										<li class="align-top">
-											<div class="item-content">
-												<div class="item-inner">
-													<div class="item-title label">Description</div>
-													<div class="item-input">
-														<textarea name="newBugDesc"></textarea>
-													</div>
+										<li class="item-content">
+											<div class="item-inner">
+												<div class="item-title label">Password</div>
+												<div class="item-input">
+													<input id="password" type="password" name="password" placeholder="Required"/>
 												</div>
 											</div>
 										</li>
 									</ul>
 								</div>
+-->
+								<div class="list-block">
+									<ul>
+										<li><a href="#" class="item-link list-button signin-button">Sign In as Demo User</a></li>
+<!-- 										<li><a href="frames/login/register.php" class="item-link list-button" data-view=".view-login">Register</a></li> -->
+									</ul>
+<!-- 									<div class="list-block-label">A valid login is required to use advanced functionality of this website.</div> -->
+										<div class="list-block-label">Bug Reporter&#8311; stores Login information and Bugs locally on your device.</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="popup popup-update-detail">
+			<div class="view">
+				<div class="navbar">
+					<div class="navbar-inner">
+						<div class="center sliding">Details</div>
+						<div class="right sliding"><a href="#" class="close-popup"><b><span>Close</span></b></a></div>
+					</div>
+				</div>
+				<div class="pages">
+					<div class="page" data-page="update-detail">
+						<div class="page-content login-screen-content" style="padding: 55px 8px 10px; font-size: 12px">
+							This update contains improvements and bug fixes, including:<br><br><span id="content">{{content}}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="popup popup-getting-started">
+			<div class="view view-getting-started">
+				<div class="pages">
+					<div class="page no-swipeback" data-page="getting-started">
+						<div class="page-content login-screen-content">
+							<img style="position: relative; left: 50%; margin-left: -30px; margin-top: 90px; width: 60px; height: 60px;" src="iTunesArtwork.png" />
+							<div class="login-screen-title" style="font-weight: 100; font-size: 30pt">Tips</div>
+							<div class="content-block">
+								<p style="color: #8e8e93; font-size: 14pt; text-align: center; font-weight: 300;">Learn how to use Bug Reporter&#8311;<br>by taking this quick tour.</p>
+							</div>
+							<div class="list-block center" style="position: absolute; bottom: 0; width: 100%; max-width: 100%;">
+									<a href="frames/getting-started.html" class="link" style="font-size: 14pt; height: 44px;"><span>Get Started </span><i class="icon icon-back-blue" style="-webkit-transform: rotate(180deg); transform: rotate: 180deg); margin-top: -5px;"></i></a>
+								<div class="list-block-label"><a href="#" class="link close-popup">Not now</a></div>
 							</div>
 						</div>
 					</div>
 				</div>
-				
 			</div>
+		</div>
+		<div class="popup popup-submit">
+			<div class="view view-popup-submit">
+				<div class="navbar fixed-size">
+					<div class="navbar-inner">
+						<div class="left sliding"><a href="javascript:$('.views').removeClass('popup-compose'); br7.closeModal();" class="external">Cancel</a></div>
+						<div class="center sliding">Submit New Bug</div>
+						<div class="right sliding"><a href="#" class="submit-bug"><b>Submit</b></a></div>
+					</div>
+				</div>
+				<div class="pages">
+					<div class="page navbar-through" data-page="submit">
+						<div class="page-content">
+							<div class="list-block tablet-inset">
+								<ul>
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="item-title label">Title</div>
+												<div class="item-input">
+													<input name="newBugName" type="text">
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="item-title label">Category</div>
+												<div class="item-input">
+													<select name="newBugCat">
+														<option selected value="None">None</option>
+														<option value="Security">Security</option>
+														<option value="Crash/Hang/Data Loss">Crash/Hang/Data Loss</option>
+														<option value="Power">Power</option>
+														<option value="Perfomance">Performance</option>
+														<option value="UI/Usability">UI/Usability</option>
+														<option value="Serious Bug">Serious Bug</option>
+														<option value="Other Bug">Other Bug</option>
+														<option value="Feature (New)">Feature (New)</option>
+														<option value="Enhancement">Enhancement</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="list-block tablet-inset">
+								<ul>
+									<li class="align-top">
+										<div class="item-content">
+											<div class="item-inner">
+												<div class="item-title label">Description</div>
+												<div class="item-input">
+													<textarea name="newBugDesc"></textarea>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
 		</div>
 
 
@@ -267,18 +290,12 @@
 			<div class="popover-inner">
 				<div class="list-block">
 					<ul>
-						<li><a href="#" class="list-button item-link close-popover button-red logout-button">Sign off</a></li>
+						<li><a href="#" class="list-button item-link close-popover button-red logout-button" data-i18n="SIGN_OFF">Sign off</a></li>
 						<!-- <li><a href="#" class="list-button item-link close-popover">User Control Panel</a></li> -->
 					</ul>
 				</div>
 			</div>
 		</div>
-		</div>
-
-		<!-- Path to Framework7 Library JS-->
-		<script type="text/javascript" src="js/framework7.min.js"></script>
-		<!-- Path to your app js-->
-		<script type="text/javascript" src="js/br7.js"></script>
 		
 		<script id="bug-open-template" type="template">
 			<div class="list-block">
@@ -342,5 +359,9 @@
 				</ul>
 			</div>
 		</script>
+		<script type="text/javascript" src="js/framework7.min.js"></script>
+		<script type="text/javascript" src="js/br7.common.js"></script>
+		<script type="text/javascript" src="js/br7.handlers.js"></script>
+		<script type="text/javascript" src="js/br7.functions.js"></script>
 	</body>
 </html>
