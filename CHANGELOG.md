@@ -1,9 +1,20 @@
 # Changelog
+Releade 1.0.3-1832 (August 24)
+------------------
+* [ADD] Modern UI for an iOS 8-like look and feel
+* [ADD] Swipe To Delete Bugs
+* [ADD] iPad Support for Tips
+* [ADD Schedule Options for Timed Theme
+* [ADD] About Panel for detailed information about Bug Reporter⁷
+* [IMPROVE] Various improvements
+* [IMPROVE] Update to Framework7 Release 0.9.5
+* [IMPROVE] Completely rewritten JavaScript components
+* [IMPROVE] Stylesheets are now built upon LESS architecture
+
 Release 1.0.2-1158 Update 1 (August 16)
 ---------------------------
 * [IMPROVE] Changed way "Tips" section is closed  
   *NOTE: "Tips" doesn't navigate back currently as there are some technical issues when manually navigating back*
-
 
 Release 1.0.2-1558 (August 16)
 ------------------

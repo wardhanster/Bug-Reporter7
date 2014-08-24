@@ -2,6 +2,14 @@
 	"en": {
 		"updates": [
 			{
+				"version": "1.0.3",
+				"build": "1832",
+				"updateType": "production",
+				"description": "This update contains bug fixes and improvements.",
+				"content": "<ul style=\"padding-left: 26px\"> <li>Modern UI <ul style=\"padding-left: 25px\"> <li>Modern UI for an iOS 8-like look and feel</li> <li>Swipe To Delete Bugs</li> </ul> <li>Tips <ul style=\"padding-left: 25px\"> <li>iPad Support for Tips</li> <li>Various improvements</li> <li>NOTE: Content will be delivered in Version 1.0.3 Update 1</li> </ul> <li>Timed Theme <ul style=\"padding-left: 25px\"> <li>Schedule Options for Timed Theme</li> </ul> </li> <li>Settings <ul style=\"padding-left: 25px\"> <li>About Panel for detailed information about Bug Reporter⁷</li> </ul> </li> <li>Core <ul style=\"padding-left: 25px\"> <li>Update to Framework7 Release 0.9.5</li> <li>Completely rewritten JavaScript components</li> <li>Stylesheets are now built upon LESS architecture</li> </ul> </li> </ul>",
+				"instructions": "This update is recommended to all users of Bug Reporter⁷."
+			},
+			{
 				"version": "1.0.2",
 				"build": "1558",
 				"updateType": "production",

@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html class="" manifest="cache.php">
+<html manifest="cache.php">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta http-equiv='cache-control' content='no-cache'>
+		<meta http-equiv='expires' content='0'>
+		<meta http-equiv='pragma' content='no-cache'>
 		<title>Bug Reporter&#8311;</title>
 		<link rel="stylesheet" href="css/framework7.css">
 		<link rel="stylesheet" href="css/framework7.themes.css">
-		<link rel="stylesheet" href="css/bugreporter7.css">
+		<link rel="stylesheet" href="css/bugreporter7.less.css">
+		<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
 		
 		<link rel="apple-touch-icon" href="AppIcon60x60.png">
 		<link rel="apple-touch-icon" sizes="76x76" href="AppIcon76x76.png">
@@ -20,14 +24,21 @@
 		<script src="js/jquery.js"></script>
 		<script src="js/cookies.js"></script>
 	</head>
-	<body class="ios8">
+	<body>
 		<div class="statusbar-overlay"></div>
 		<div class="views">
-			<div class="view view-main">
+			<div class="view view-main hidden-toolbar">
 				<div class="navbar">
 					<div class="navbar-inner">
 						<div class="center sliding">Bug Reporter&#8311;</div>
 					</div>
+				</div>
+				<div class="toolbar" id="developer-toolbar">
+				    <div class="toolbar-inner">
+				        <a></a>
+						<a></a>
+				        <a href="#" class="link open-popup" data-popup=".popup-dev"><span style="width: 44px; text-align: center; font-size: 32px" class="ion-ios7-gear-outline"></span></a>
+				    </div>
 				</div>
 				<div class="pages navbar-through">
 					<div data-page="index" class="page page-on-center">
@@ -79,11 +90,10 @@
 									</li>
 								</ul>
 							</div>
-							<div class="content-block-title" data-i18n="ADVANCED">Advanced</div>
 							<div class="list-block tablet-inset">
 								<ul>
-									<li>
-										<a href='javascript:br7.alert("<span data-i18n=\"PAGE_NOT_AVAILABLE\">This page is not avaliable.</span>","<span data-i18n=\"FEATURE_NOT_AVAILABLE\">Feature not available</span>");' class="item-link external">
+									<li class="disabled">
+										<a href='javascript:fw7.alert("<span data-i18n=\"PAGE_NOT_AVAILABLE\">This page is not avaliable.</span>","<span data-i18n=\"FEATURE_NOT_AVAILABLE\">Feature not available</span>");' class="item-link external">
 <!-- 											<a href="frames/groups.html" class="item-link"> -->
 											<div class="item-content">
 												<div class="item-inner">
@@ -92,8 +102,8 @@
 											</div>
 										</a>
 									</li>
-									<li>
-										<a href='javascript:br7.alert("<span data-i18n=\"PAGE_NOT_AVAILABLE\">This page is not avaliable.</span>","<span data-i18n=\"FEATURE_NOT_AVAILABLE\">Feature not available</span>");' class="item-link external">
+									<li class="disabled">
+										<a href='javascript:fw7.alert("<span data-i18n=\"PAGE_NOT_AVAILABLE\">This page is not avaliable.</span>","<span data-i18n=\"FEATURE_NOT_AVAILABLE\">Feature not available</span>");' class="item-link external">
 											<div class="item-content">
 												<div class="item-inner">
 													<div class="item-title" data-i18n="ANNOUNCEMENTS">Announcements</div>
@@ -106,7 +116,7 @@
 							<div class="list-block tablet-inset">
 								<ul>
 									<li>
-										<a href="frames/settings/index.html" class="item-link">
+										<a href="frames/settings/index.html?v=1" class="item-link">
 											<div class="item-content">
 												<div class="item-inner">
 														<div class="item-title" data-i18n="SETTINGS">Settings</div>
@@ -114,11 +124,24 @@
 											</div>
 										</a>
 									</li>
+								</ul>
+							</div>
+							<div class="list-block tablet-inset">
+								<ul>
 									<li>
 										<a href="#" class="open-popup" data-popup=".popup-getting-started">
 											<div class="item-content">
 												<div class="item-inner">
 														<div class="item-title" data-i18n="SHOW_TIPS">Show Tips</div>
+												</div>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="#" class="open-popup" data-popup=".popup-update-detail">
+											<div class="item-content">
+												<div class="item-inner">
+														<div class="item-title" data-i18n="WHATS_NEW">What's New?</div>
 												</div>
 											</div>
 										</a>
@@ -189,28 +212,24 @@
 					</div>
 				</div>
 				<div class="pages">
-					<div class="page" data-page="update-detail">
-						<div class="page-content login-screen-content" style="padding: 55px 8px 10px; font-size: 12px">
+					<div class="page" data-page="update-detail" style="background-color: #fff;">
+						<div class="page-content login-screen-content" style="padding: 55px 8px 10px; font-size: 13px">
 							This update contains improvements and bug fixes, including:<br><br><span id="content">{{content}}</span>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="popup popup-getting-started">
+		<div class="popup popup-getting-started tablet-fullscreen">
 			<div class="view view-getting-started">
 				<div class="pages">
-					<div class="page no-swipeback" data-page="getting-started">
+					<div class="page no-swipeback no-toolbar" data-page="getting-started">
 						<div class="page-content login-screen-content">
-							<img style="position: relative; left: 50%; margin-left: -30px; margin-top: 90px; width: 60px; height: 60px;" src="iTunesArtwork.png" />
-							<div class="login-screen-title" style="font-weight: 100; font-size: 30pt">Tips</div>
-							<div class="content-block">
-								<p style="color: #8e8e93; font-size: 14pt; text-align: center; font-weight: 300;">Learn how to use Bug Reporter&#8311;<br>by taking this quick tour.</p>
-							</div>
-							<div class="list-block center" style="position: absolute; bottom: 0; width: 100%; max-width: 100%;">
-									<a href="frames/getting-started.html" class="link" style="font-size: 14pt; height: 44px;"><span>Get Started </span><i class="icon icon-back-blue" style="-webkit-transform: rotate(180deg); transform: rotate: 180deg); margin-top: -5px;"></i></a>
-								<div class="list-block-label"><a href="#" class="link close-popup">Not now</a></div>
-							</div>
+							<img class="getting-started-icon" src="iTunesArtwork.png" />
+							<div class="getting-started-title">Tips</div>
+							<div class="getting-started-intro">Learn how to use Bug Reporter&#8311;<br>by taking this quick tour.<br><span style="font-size: 12px">Tips will get an update soon!</span></div>
+							<a href="javascript:if(fw7.device.iphone){gettingStartedView.loadPage('frames/getting-started.html?v=2')}else{gettingStartedView.loadPage('frames/getting-started~ipad.html')}" class="get-started link external"><span>Get Started</span></a>
+							<a href="#" class="link not-now close-popup">Not now</a>
 						</div>
 					</div>
 				</div>
@@ -220,7 +239,7 @@
 			<div class="view view-popup-submit">
 				<div class="navbar fixed-size">
 					<div class="navbar-inner">
-						<div class="left sliding"><a href="javascript:$('.views').removeClass('popup-compose'); br7.closeModal();" class="external">Cancel</a></div>
+						<div class="left sliding"><a href="javascript:$('.views').removeClass('popup-compose'); fw7.closeModal();" class="external">Cancel</a></div>
 						<div class="center sliding">Submit New Bug</div>
 						<div class="right sliding"><a href="#" class="submit-bug"><b>Submit</b></a></div>
 					</div>
@@ -281,10 +300,7 @@
 					</div>
 				</div>
 			</div>
-			
 		</div>
-
-
 		<div class="popover popover-usercp">
 			<div class="popover-angle"></div>
 			<div class="popover-inner">
@@ -296,11 +312,47 @@
 				</div>
 			</div>
 		</div>
+		<div class="popover popover-about">
+			<div class="popover-angle"></div>
+			<div class="popover-inner">
+				<div class="navbar" style="border-top-right-radius: 7px; border-top-left-radius: 7px; ">
+					<div class="navbar-inner center">
+						<div class="center sliding" style="width: 100%; display: block;">Schedule</div>
+					</div>
+				</div>
+				<div class="list-block">
+					<form id="timed-theme-schedule" class="store-data">
+						<ul>
+							<li>
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title label">From</div>
+										<div class="item-input">
+											<input type="time" name="ttbegin" value="22:00" onchange="fw7.formStoreData('timed-theme-schedule', fw7.formToJSON('#timed-theme-schedule'))" oninput="fw7.formStoreData('timed-theme-schedule', fw7.formToJSON('#timed-theme-schedule'))">
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title label">To</div>
+										<div class="item-input">
+											<input type="time" name="ttend" value="07:00" onchange="fw7.formStoreData('timed-theme-schedule', fw7.formToJSON('#timed-theme-schedule'))" oninput="fw7.formStoreData('timed-theme-schedule', fw7.formToJSON('#timed-theme-schedule'))">
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</form>
+				</div>
+			</div>
+		</div>
 		
 		<script id="bug-open-template" type="template">
-			<div class="list-block">
+			<div class="list-block" data-bug="{{internalID}}">
 				<ul>
-					<li class="swipeout">
+					<li class="swipeout" style="overflow: hidden">
 						<div class="swipeout-content" style="font-size: 14px; padding: 20px 19px 20px 30px;">
 							<p class="title" style="margin: 0 5px 0 0; overflow: hidden; text-overflow: ellipsis; font-weight: bold; float: left;">{{title}}</p>
 							<p class="date" style="margin: 0; float: right; color: #23b2fd">{{date}}</p>
@@ -309,9 +361,12 @@
 							<p class="description" style="clear: both; margin: 5px 0 0 0; max-height: 32px; text-overflow: ellipsis; overflow: hidden;">{{description}}</p>
 						</div>
 						<div class="swipeout-actions">
-							<div class="swipeout-actions-inner">
-								<a href="#" class="action1 swipeout-delete" style="background-color: #ff9500;">Archive</a>
-								<a href="#" class="action2 swipeout-delete" style="background-color: #ff3b30;">Close</a>
+							<div class="swipeout-actions-inner" style="">
+								<a href="#" class="action0 swipeout-close gray" style="background-color: #c0bfc5;">More</a>
+								<a href="#" class="action1 swipeout-delete orange" style="background-color: #ff8810;">Archive</a>
+								<a href="" class="action2 swipeout-delete red" style="background-color: #ff3b30;">
+									<div>Close</div>
+								</a>
 							</div>
 						</div>
 					</li>
@@ -319,7 +374,7 @@
 			</div>
 		</script>
 		<script id="bug-closed-template" type="template">
-			<div class="list-block">
+			<div class="list-block" data-bug="{{internalID}}">
 				<ul>
 					<li class="swipeout">
 						<div class="swipeout-content" style="font-size: 14px; padding: 15px;">
@@ -331,8 +386,10 @@
 						</div>
 						<div class="swipeout-actions">
 							<div class="swipeout-actions-inner">
-								<a href="#" class="action1 swipeout-delete" style="background-color: #ff9500;">Archive</a>
-								<a href="#" class="action2 swipeout-delete" style="background-color: #007aff;">Reopen</a>
+								<a href="#" class="action1 swipeout-delete orange" style="background-color: #ff8810;">Archive</a>
+								<a href="#" class="action2 swipeout-delete blue" style="background-color: #007aff;">
+									<div>Reopen</div>
+								</a>
 							</div>
 						</div>
 					</li>
@@ -340,7 +397,7 @@
 			</div>
 		</script>
 		<script id="bug-archived-template" type="template">
-			<div class="list-block">
+			<div class="list-block" data-bug="{{internalID}}">
 				<ul>
 					<li class="swipeout">
 						<div class="swipeout-content" style="font-size: 14px; padding: 15px;">
@@ -352,7 +409,9 @@
 						</div>
 						<div class="swipeout-actions">
 							<div class="swipeout-actions-inner">
-								<a href="#" class="action1 swipeout-delete" style="background-color: #ff3b30;">Delete</a>
+								<a href="#" class="action1 swipeout-delete red" style="background-color: #ff3b30;">
+									<div>Delete</div>
+								</a>
 							</div>
 						</div>
 					</li>
@@ -360,8 +419,6 @@
 			</div>
 		</script>
 		<script type="text/javascript" src="js/framework7.min.js"></script>
-		<script type="text/javascript" src="js/br7.common.js"></script>
-		<script type="text/javascript" src="js/br7.handlers.js"></script>
-		<script type="text/javascript" src="js/br7.functions.js"></script>
+		<script type="text/javascript" src="js/bugreporter7.js"></script>
 	</body>
 </html>

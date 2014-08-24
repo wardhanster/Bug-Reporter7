@@ -15,6 +15,7 @@ Key Features
 * **With Updates, it keeps getting better**: Every release of Bug Reporter⁷ now comes with Software Update to keep your app always up to date, because Updates are downloaded automatically.
 
 * NOTE: Groups and Announcements currently not available in Demo *
+* NOTE: Tips is currently under construction and will receive an update soon. *
 
 Software Update
 ===============
@@ -24,13 +25,56 @@ Software Update automatically searches for updates on launch and informs users w
 
 Software Update requires working Application Cache. Current approach relies on PHP, so this requires a PHP capable server.
 
+Modern UI & Swipe to Delete
+===========================
+Modern UI adds various UI aspects found in iOS 8, like Compose View and Swipe to Delete in Mail, to Bug Reporter⁷. When swiping left on a bug, buttons are normally static. With Modern UI, buttons slide in as you move your finger (or mouse). And with Swipe to Delete, you can swipe even further to close, reopen or delete a bug without tapping on a button.
+
+This is Modern UI. Included in Bug Reporter⁷.
+
+
 Changelog
 =========
 See [CHANGELOG.md](https://github.com/SniperGER/Bug-Reporter7/blob/master/CHANGELOG.md)
-Copyright
-=========
-© 2014 Janik Schmidt, All rights reserved.
-Permission to use this App as an example for Framework7 is hereby granted.
 
-Bug Reporter7 uses Framework7, a full featured HTML Framework for building iOS 7 apps, created by Vladimir Kharlampidi.
-Additionally, code from the example app ToDo7 has been used to enable Offline Mode and Cache Updating.
+License
+=======
+Bug Reporter⁷
+Copyright © 2014 Janik Schmidt
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Framework7
+Copyright (c) 2014 Vladimir Kharlampidi
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

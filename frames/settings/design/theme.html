@@ -11,12 +11,21 @@
 				<div class="content-block-title">Theme</div>
 				<div class="list-block tablet-inset">
 					<ul id="themes">
+						<li style="background-color: #fff; color: #000; border: none !important;">
+							<label class="label-radio item-content">
+								<!-- Checked by default -->
+								<input type="radio" name="theme" value="white">
+								<div class="item-inner">
+									<div class="item-title">White</div>
+								</div>
+							</label>
+
 						<li style="background-color: #f7f7f8; color: #000; border: none !important;">
 							<label class="label-radio item-content">
 								<!-- Checked by default -->
 								<input type="radio" name="theme" value="default" checked>
 								<div class="item-inner">
-									<div class="item-title">Light (Default)</div>
+									<div class="item-title">Light</div>
 								</div>
 							</label>
 						</li>
@@ -44,7 +53,7 @@
 								</div>
 							</label>
 						</li>-->
-						<li style="background-color: #191919; color: #fff; border: none !important;">
+						<li style="background-color: #1c1d1f; color: #fff; border: none !important;">
 							<label class="label-radio item-content">
 								<input type="radio" name="theme" value="dark">
 								<div class="item-inner">
@@ -96,12 +105,21 @@
 								</div>
 							</div>
 						</li>
+						<li id="schedule" class="disabled">
+							<a href="#" class="item-link open-schedule">
+								<div class="item-content">
+									<div class="item-inner">
+										<div class="item-title label" style="font-size: 16px">From<br>To</div>
+										<div class="item-after color" style="font-size: 16px; max-height: none;">22:00<br>07:00</div>
+									</div>
+								</div>
+							</a>
+						</li>
 					</ul>
 				</div>
 			</form>
 			<div class="content-block">
-				<p>Timed Theme automatically applies the Dark theme between 22:00 and 07:00.</p>
-				<p>Due to technical limitations, a theme change requires the app to be restarted so the changed status bar can be applied.</p>
+				<p>Due to technical limitations, a theme change requires the app to be restarted so the changed status bar can be applied. Restarting is only required if the app is running in Standalone mode.</p>
 			</div>
 
 		</div>
